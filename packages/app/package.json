@@ -2,7 +2,6 @@
   "name": "@learn-linaria/app",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
     "type-check": "tsc",
     "dev": "vite serve",
@@ -15,6 +14,7 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "@types/node": "18.14.6",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
     "@vitejs/plugin-react": "3.1.0",

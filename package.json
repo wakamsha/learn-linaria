@@ -11,7 +11,7 @@
   },
   "packageManager": "pnpm@7.29.0",
   "scripts": {
-    "app1": "pnpm -F \"@learn-linaria/app\"",
+    "app": " pnpm -F \"@learn-linaria/app\"",
     "core": "pnpm -F \"@learn-linaria/core\"",
     "lint": "  prettier -c ./packages/**/*.ts{,x}; stylelint ./packages/**/*.ts{,x};       eslint ./packages/**/*.ts{,x}",
     "format": "prettier -w ./packages/**/*.ts{,x}; stylelint ./packages/**/*.ts{,x} --fix; eslint ./packages/**/*.ts{,x} --fix",

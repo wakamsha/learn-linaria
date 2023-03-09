@@ -20,11 +20,7 @@ module.exports = {
     },
     ecmaVersion: 12,
     sourceType: 'module',
-    project: [
-      // 'tsconfig.json',
-      './packages/**/tsconfig.json',
-      './packages/**/tsconfig.node.json',
-    ],
+    project: ['./packages/**/tsconfig.json'],
   },
   ignorePatterns: ['.eslintrc.*'],
   plugins: ['react', 'react-hooks'],

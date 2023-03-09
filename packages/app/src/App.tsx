@@ -1,12 +1,11 @@
-import { css } from '@linaria/core';
 import { useState } from 'react';
 
 export const App = () => {
   const [count, setCount] = useState(0);
 
   return (
-    <div>
-      <div className={styleBase}>
+    <div className="App">
+      <div>
         <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
           <img src="/vite.svg" className="logo" alt="Vite logo" />
         </a>
@@ -22,7 +21,3 @@ export const App = () => {
     </div>
   );
 };
-
-const styleBase = css`
-  border: 1px solid red;
-`;

@@ -1,3 +1,4 @@
+import { globalStyle } from '@learn-linaria/core/utils/Style';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { App } from './App';
@@ -9,3 +10,5 @@ root.render(
     <App />
   </StrictMode>,
 );
+
+globalStyle();

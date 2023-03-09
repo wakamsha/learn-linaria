@@ -22,7 +22,9 @@
     "jsx": "react-jsx",
     "noEmit": true,
     "baseUrl": "./",
-    "paths": {}
+    "paths": {
+      "@learn-linaria/core/*": ["../core/src/*"]
+    }
   },
   "include": ["./src/**/*", "vite.config.ts"]
 }

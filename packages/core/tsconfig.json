@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
+    "baseUrl": "./",
     "target": "ESNext",
     "module": "ESNext",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "types": ["vite/client"],
     "esModuleInterop": false,
     "sourceMap": true,
     "allowSyntheticDefaultImports": true,
@@ -20,11 +20,7 @@
     "isolatedModules": true,
     "skipLibCheck": true,
     "jsx": "react-jsx",
-    "noEmit": true,
-    "baseUrl": "./",
-    "paths": {
-      "@learn-linaria/core/*": ["../core/src/*"]
-    }
+    "noEmit": true
   },
-  "include": ["./src/**/*", "vite.config.ts"]
+  "include": ["./src/**/*"]
 }

@@ -7,11 +7,11 @@ const alias = {
 };
 
 // eslint-disable-next-line import/no-default-export
-export default defineConfig(({ mode }): UserConfig => {
-  console.info({ mode });
-
-  return createUserConfig({
-    basePath: __dirname,
-    alias,
-  });
-});
+export default defineConfig(
+  (): UserConfig =>
+    createUserConfig({
+      basePath: __dirname,
+      alias,
+      port: 3001,
+    }),
+);

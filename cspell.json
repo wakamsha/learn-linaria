@@ -1,4 +1,18 @@
 {
   "ignorePaths": ["**/node_modules/**", "pnpm-lock.yaml"],
-  "words": ["corepack", "linaria", "pnpm", "stylelint", "plusplus", "wakamsha"]
+  "words": [
+    "cvalue",
+    "Consolas",
+    "corepack",
+    "linaria",
+    "Meiryo",
+    "Menlo",
+    "noto",
+    "optimizespeed",
+    "pnpm",
+    "stylelint",
+    "palt",
+    "plusplus",
+    "wakamsha"
+  ]
 }

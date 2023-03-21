@@ -1,22 +1,27 @@
 {
-  "name": "@learn-linaria/app",
+  "name": "@learn-linaria/routing",
   "version": "1.0.0",
   "license": "UNLICENSED",
+  "keywords": [
+    "react-router-dom"
+  ],
   "type": "module",
   "scripts": {
-    "type-check": "tsc",
-    "dev": "vite serve",
-    "start": "run-p \"type-check --watch\" \"dev\"",
-    "build": "tsc && vite build",
+    "develop": "vite serve",
+    "type-check": "tsc --noEmit",
+    "start": "run-p \"type-check --watch\" \"develop\"",
+    "build": "pnpm type-check && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
     "@learn-linaria/core": "workspace:1.0.0",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-router-dom": "6.8.2"
   },
   "devDependencies": {
     "@learn-linaria/builder": "workspace:1.0.0",
+    "@learn-linaria/tsconfig": "workspace:1.0.0",
     "@linaria/core": "4.2.8",
     "@types/node": "18.14.6",
     "@types/react": "18.0.28",

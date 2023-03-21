@@ -11,14 +11,17 @@
   },
   "packageManager": "pnpm@7.29.0",
   "scripts": {
-    "app": " pnpm -F \"@learn-linaria/app\"",
-    "core": "pnpm -F \"@learn-linaria/core\"",
+    "app": "     pnpm -F \"@learn-linaria/app\"",
+    "builder": " pnpm -F \"@learn-linaria/builder\"",
+    "core": "    pnpm -F \"@learn-linaria/core\"",
+    "routing": " pnpm -F \"@learn-linaria/routing\"",
+    "tsconfig": "pnpm -F \"@learn-linaria/tsconfig\"",
     "lint": "  prettier -c ./packages/**/*.ts{,x}; stylelint ./packages/**/*.ts{,x};       eslint ./packages/**/*.ts{,x}",
     "format": "prettier -w ./packages/**/*.ts{,x}; stylelint ./packages/**/*.ts{,x} --fix; eslint ./packages/**/*.ts{,x} --fix",
     "prepare": "husky install"
   },
   "devDependencies": {
-    "@linaria/stylelint": "3.0.0-beta.23",
+    "@linaria/stylelint": "4.1.15",
     "@stylelint/postcss-css-in-js": "0.38.0",
     "@typescript-eslint/eslint-plugin": "5.54.1",
     "@typescript-eslint/parser": "5.54.1",

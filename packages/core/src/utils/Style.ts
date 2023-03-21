@@ -1,70 +1,229 @@
 import { css } from '@linaria/core';
+import { Color, FontFamily, Shadow } from '../constants/Style';
+import NotoSansMedium from './fonts/noto-sans/NotoSansJP-Medium.woff';
+import NotoSansRegular from './fonts/noto-sans/NotoSansJP-Regular.woff';
+import NotoSerifRegular from './fonts/noto-serif/NotoSerifJP-Regular.woff';
+import NotoSerifSemiBold from './fonts/noto-serif/NotoSerifJP-SemiBold.woff';
 
-export function globalStyle() {
+/**
+ * スタイル定数から CSS 変数にアクセスする式を返します。
+ *
+ * @param key カラーネーム
+ *
+ * @example
+ * cssVar('Primary')      // var(--primary)
+ * cssVar('TexturePaper') // var(--texture-paper)
+ */
+export function cssVar(
+  key: keyof typeof Color | keyof typeof Shadow,
+): `var(--${keyof typeof Color | keyof typeof Shadow})` {
+  return `var(--${key})`;
+}
+
+/**
+ * Margin や Padding など余白の値を算出して返す。
+ *
+ * 余白は 4 の倍数として定義されている。
+ * @param value
+ */
+export function gutter(value: number): string {
+  return `${4 * value}px`;
+}
+
+/**
+ * 矩形サイズを返す。
+ *
+ * @param value 一辺の長さ
+ */
+export function square(value: string | number) {
+  const side = typeof value === 'number' ? `${value}px` : value;
+
+  return `
+    width: ${side};
+    height: ${side};
+  `;
+}
+
+/**
+ * 視覚上は見えなくなるが、操作は可能となるスタイル。
+ *
+ * @see https://github.com/twbs/bootstrap/blob/a4a04cd9ec741050390746f8056cc79a9c04c8df/scss/mixins/_screen-reader.scss#L8-L18
+ */
+export function visuallyHidden() {
+  return css`
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: none;
+  `;
+}
+
+export function textEllipsis() {
+  return `
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  `;
+}
+
+/**
+ * @see https://github.com/hankchizljaw/modern-css-reset/blob/master/dist/reset.min.css
+ */
+export function applyResetStyle() {
   return css`
     :global() {
-      :root {
-        font-family: Inter, system-ui, Helvetica, Arial, sans-serif;
-        font-weight: 400;
-        line-height: 1.5;
-        color: rgb(255 255 255 / 87%);
-        background-color: #242424;
-        color-scheme: light dark;
-        font-synthesis: none;
-        text-rendering: optimizeLegibility;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+      }
+
+      html {
+        overflow-x: hidden;
+        font-family: sans-serif;
         -webkit-text-size-adjust: 100%;
+        -webkit-tap-highlight-color: rgb(0 0 0 / 0%);
+        scroll-behavior: smooth;
       }
 
-      a {
-        font-weight: 500;
-        color: #646cff;
-        text-decoration: inherit;
+      body {
+        min-height: 100dvh;
+        text-rendering: optimizespeed;
+        line-height: 1.5;
+      }
 
-        &:hover {
-          color: #535bf2;
+      a:not([class]) {
+        text-decoration-skip-ink: auto;
+      }
+
+      img,
+      picture {
+        display: block;
+        max-width: 100%;
+      }
+
+      input,
+      button,
+      textarea,
+      select {
+        font: inherit;
+
+        &:focus:not(:focus-visible) {
+          /* キーボード操作"以外"でフォーカスされた際は outline を消す */
+          outline: 0;
         }
       }
 
-      h1 {
-        font-size: 3.2em;
-        line-height: 1.1;
+      main {
+        display: block;
+        overflow-x: hidden;
+      }
+    }
+  `;
+}
+
+export function applyGlobalStyle() {
+  return css`
+    :global() {
+      @font-face {
+        font-family: 'Noto Sans Japanese';
+        font-style: normal;
+        font-weight: normal;
+        src: local('Noto Sans Japanese'), url(${NotoSansRegular}) format('woff');
+        font-display: swap;
       }
 
-      button {
-        padding: 0.6em 1.2em;
-        font-family: inherit;
-        font-size: 1em;
-        font-weight: 500;
-        cursor: pointer;
-        background-color: #1a1a1a;
-        border: 1px solid transparent;
-        border-radius: 8px;
-        transition: border-color 0.25s;
-
-        &:hover {
-          border-color: #646cff;
-        }
-
-        &:focus,
-        &:focus-visible {
-          outline: 4px auto -webkit-focus-ring-color;
-        }
+      @font-face {
+        font-family: 'Noto Sans Japanese';
+        font-style: normal;
+        font-weight: bold;
+        src: local('Noto Sans Japanese Bold'), url(${NotoSansMedium}) format('woff');
+        font-display: swap;
       }
 
-      @media (prefers-color-scheme: light) {
+      @font-face {
+        font-family: 'Noto Serif Japanese';
+        font-style: normal;
+        font-weight: normal;
+        src: local('Noto Serif Japanese'), url(${NotoSerifRegular}) format('woff');
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: 'Noto Serif Japanese';
+        font-style: normal;
+        font-weight: bold;
+        src: local('Noto Serif Japanese Bold'), url(${NotoSerifSemiBold}) format('woff');
+        font-display: swap;
+      }
+
+      :root {
+        ${Object.entries({ ...Color, ...Shadow }).reduce(
+          (acc, [key, value]) => ({
+            ...acc,
+            [`--${key}`]: value.light,
+          }),
+          {},
+        )}
+      }
+
+      @media (prefers-color-scheme: dark) {
         :root {
-          color: #213547;
-          background-color: #fff;
-        }
+          color-scheme: dark;
 
-        a:hover {
-          color: #747bff;
+          ${Object.entries({ ...Color, ...Shadow }).reduce(
+            (acc, [key, value]) => ({
+              ...acc,
+              [`--${key}`]: value.dark,
+            }),
+            {},
+          )}
         }
+      }
 
-        button {
-          background-color: #f9f9f9;
+      html,
+      body {
+        padding: 0;
+        margin: 0;
+        font-family: ${FontFamily.Default};
+        font-weight: 500;
+        font-feature-settings: palt 1;
+        background-color: ${cssVar('TextureBody')};
+      }
+
+      body,
+      h1,
+      h2,
+      h3,
+      h4,
+      p,
+      ul,
+      ol,
+      figure,
+      blockquote,
+      dl,
+      dd {
+        margin: 0;
+      }
+
+      ul,
+      ol {
+        padding: 0;
+        list-style: none;
+      }
+      /* stylelint-disable-next-line no-descending-specificity */
+      a {
+        color: inherit;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
         }
       }
     }

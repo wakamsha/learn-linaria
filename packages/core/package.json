@@ -1,6 +1,6 @@
 {
   "name": "@learn-linaria/core",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,6 +10,7 @@
     "@types/react-dom": "18.0.11",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-router-dom": "6.8.2",
     "typescript": "4.9.5"
   },
   "peerDependencies": {
@@ -18,6 +19,7 @@
     "@types/react-dom": "18.0.11",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-router-dom": "6.8.2",
     "typescript": "4.9.5"
   }
 }

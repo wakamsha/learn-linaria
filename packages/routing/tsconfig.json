@@ -1,0 +1,10 @@
+{
+  "extends": "@learn-linaria/tsconfig",
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@learn-linaria/core/*": ["../core/src/*"]
+    }
+  },
+  "include": ["./src/**/*", "../core/src/*.d.ts"]
+}

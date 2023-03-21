@@ -11,8 +11,10 @@
   },
   "packageManager": "pnpm@7.29.0",
   "scripts": {
-    "app": " pnpm -F \"@learn-linaria/app\"",
-    "core": "pnpm -F \"@learn-linaria/core\"",
+    "app": "      pnpm -F \"@learn-linaria/app\"",
+    "core": "     pnpm -F \"@learn-linaria/core\"",
+    "routing": "  pnpm -F \"@learn-linaria/routing\"",
+    "tsconfig": " pnpm -F \"@learn-linaria/tsconfig\"",
     "lint": "  prettier -c ./packages/**/*.ts{,x}; stylelint ./packages/**/*.ts{,x};       eslint ./packages/**/*.ts{,x}",
     "format": "prettier -w ./packages/**/*.ts{,x}; stylelint ./packages/**/*.ts{,x} --fix; eslint ./packages/**/*.ts{,x} --fix",
     "prepare": "husky install"

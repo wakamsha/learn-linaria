@@ -22,7 +22,7 @@ module.exports = {
     sourceType: 'module',
     project: ['./packages/**/tsconfig.json'],
   },
-  ignorePatterns: ['.eslintrc.*'],
+  ignorePatterns: ['.eslintrc.*', 'vite.config.ts'],
   plugins: ['react', 'react-hooks'],
   rules: {
     // Enable
@@ -44,6 +44,12 @@ module.exports = {
       },
     ],
     '@typescript-eslint/no-useless-constructor': ['error'],
+    '@typescript-eslint/restrict-template-expressions': [
+      'error',
+      {
+        allowBoolean: true,
+      },
+    ],
     '@typescript-eslint/switch-exhaustiveness-check': ['error'],
     'import/no-default-export': ['error'],
     'react/function-component-definition': [
@@ -118,6 +124,7 @@ module.exports = {
     '@typescript-eslint/no-use-before-define': ['off'],
     '@typescript-eslint/no-unsafe-assignment': ['off'], // tsconfig にて設定した alias path や画像ファイルを正しく認識できず any 型と誤認するため無効化する。
     '@typescript-eslint/no-unsafe-member-access': ['off'], // tsconfig にて設定した alias path を認識できないため無効化する。
+    '@typescript-eslint/no-unsafe-return': ['off'],
     'import/extensions': ['off'], // import path に拡張子を含めることを強制するため無効化する。
     'import/no-extraneous-dependencies': ['off'], // プロジェクトルートにある node モジュールの import を指摘するため無効化する。
     'import/no-unresolved': ['off'], // tsconfig にて設定した alias path を認識できないため無効化する。

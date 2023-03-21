@@ -54,7 +54,7 @@ importers:
 
   packages/app:
     specifiers:
-      '@learn-linaria/core': workspace:0.0.0
+      '@learn-linaria/core': workspace:1.0.0
       '@linaria/core': 4.2.8
       '@linaria/vite': 4.2.9
       '@types/node': 18.14.6
@@ -90,6 +90,7 @@ importers:
       '@types/react-dom': 18.0.11
       react: 18.2.0
       react-dom: 18.2.0
+      react-router-dom: 6.8.2
       typescript: 4.9.5
     devDependencies:
       '@linaria/core': 4.2.8
@@ -97,7 +98,46 @@ importers:
       '@types/react-dom': 18.0.11
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
+      react-router-dom: 6.8.2_biqbaboplfbrettd7655fr4n2y
       typescript: 4.9.5
+
+  packages/routing:
+    specifiers:
+      '@learn-linaria/core': workspace:1.0.0
+      '@learn-linaria/tsconfig': workspace:1.0.0
+      '@linaria/core': 4.2.8
+      '@linaria/vite': 4.2.9
+      '@types/node': 18.14.6
+      '@types/react': 18.0.28
+      '@types/react-dom': 18.0.11
+      '@vitejs/plugin-react': 3.1.0
+      babel-plugin-module-resolver: 5.0.0
+      npm-run-all: 4.1.5
+      react: 18.2.0
+      react-dom: 18.2.0
+      react-router-dom: 6.8.2
+      typescript: 4.9.5
+      vite: 4.1.4
+    dependencies:
+      '@learn-linaria/core': link:../core
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      react-router-dom: 6.8.2_biqbaboplfbrettd7655fr4n2y
+    devDependencies:
+      '@learn-linaria/tsconfig': link:../tsconfig
+      '@linaria/core': 4.2.8
+      '@linaria/vite': 4.2.9_vite@4.1.4
+      '@types/node': 18.14.6
+      '@types/react': 18.0.28
+      '@types/react-dom': 18.0.11
+      '@vitejs/plugin-react': 3.1.0_vite@4.1.4
+      babel-plugin-module-resolver: 5.0.0
+      npm-run-all: 4.1.5
+      typescript: 4.9.5
+      vite: 4.1.4_@types+node@18.14.6
+
+  packages/tsconfig:
+    specifiers: {}
 
 packages:
 
@@ -2050,6 +2090,10 @@ packages:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.15.0
     dev: true
+
+  /@remix-run/router/1.3.3:
+    resolution: {integrity: sha512-YRHie1yQEj0kqqCTCJEfHqYSSNlZQ696QJG+MMiW4mxSl9I0ojz/eRhJS4fs88Z5i6D1SmoF9d3K99/QOhI8/w==}
+    engines: {node: '>=14'}
 
   /@rollup/pluginutils/4.2.1:
     resolution: {integrity: sha512-iKnFXr7NkdZAIHiIWE+BX5ULi/ucVFYWD6TbAV+rZctiRTY2PL6tsIKhoIOaoskiWAkgu+VsbXgUVDNLHf+InQ==}
@@ -4937,6 +4981,27 @@ packages:
     resolution: {integrity: sha512-wViHqhAd8OHeLS/IRMJjTSDHF3U9eWi62F/MledQGPdJGDhodXJ9PBLNGr6WWL7qlH12Mt3TyTpbS+hGXMjCzQ==}
     engines: {node: '>=0.10.0'}
     dev: true
+
+  /react-router-dom/6.8.2_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-N/oAF1Shd7g4tWy+75IIufCGsHBqT74tnzHQhbiUTYILYF0Blk65cg+HPZqwC+6SqEyx033nKqU7by38v3lBZg==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      react: '>=16.8'
+      react-dom: '>=16.8'
+    dependencies:
+      '@remix-run/router': 1.3.3
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      react-router: 6.8.2_react@18.2.0
+
+  /react-router/6.8.2_react@18.2.0:
+    resolution: {integrity: sha512-lF7S0UmXI5Pd8bmHvMdPKI4u4S5McxmHnzJhrYi9ZQ6wE+DA8JN5BzVC5EEBuduWWDaiJ8u6YhVOCmThBli+rw==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      react: '>=16.8'
+    dependencies:
+      '@remix-run/router': 1.3.3
+      react: 18.2.0
 
   /react/18.2.0:
     resolution: {integrity: sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==}

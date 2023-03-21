@@ -17,19 +17,19 @@ export const LabeledSlider = ({ label, unit, min, max, value, onValueChange }: P
 
   return (
     <div>
-      <label className={labelStyle}>
+      <label className={styleLabel}>
         {label} : <strong>{value}</strong>
         {unit}
       </label>
-      <input type="range" className={inputStyle} min={min} max={max} value={value} onChange={handleChange} />
+      <input type="range" className={styleInput} min={min} max={max} value={value} onChange={handleChange} />
     </div>
   );
 };
 
-const labelStyle = css`
+const styleLabel = css`
   display: block;
 `;
 
-const inputStyle = css`
+const styleInput = css`
   width: 100%;
 `;

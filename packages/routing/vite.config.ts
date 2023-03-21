@@ -30,6 +30,8 @@ export default defineConfig({
             },
           ],
         ],
+        // linaria のスタイル定義内で外部ファイルから import した値が型情報ついてるとパースエラーになるので追加
+        presets: ['@babel/preset-typescript'],
       },
     }),
   ],

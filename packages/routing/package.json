@@ -19,6 +19,8 @@
     "react-router-dom": "6.8.2"
   },
   "devDependencies": {
+    "@babel/core": "7.21.3",
+    "@babel/preset-typescript": "7.21.0",
     "@learn-linaria/tsconfig": "workspace:1.0.0",
     "@linaria/core": "4.2.8",
     "@linaria/vite": "4.2.9",

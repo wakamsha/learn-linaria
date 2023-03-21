@@ -2,6 +2,7 @@
   "name": "@learn-linaria/app",
   "version": "1.0.0",
   "license": "UNLICENSED",
+  "type": "module",
   "scripts": {
     "type-check": "tsc",
     "dev": "vite serve",
@@ -15,15 +16,11 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "@babel/core": "7.21.3",
-    "@babel/preset-typescript": "7.21.0",
+    "@learn-linaria/builder": "workspace:1.0.0",
     "@linaria/core": "4.2.8",
-    "@linaria/vite": "4.2.9",
     "@types/node": "18.14.6",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
-    "@vitejs/plugin-react": "3.1.0",
-    "babel-plugin-module-resolver": "5.0.0",
     "npm-run-all": "4.1.5",
     "typescript": "4.9.5",
     "vite": "4.1.4"

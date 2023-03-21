@@ -14,6 +14,9 @@ type Props = {
    * @default {}
    */
   build?: BuildOptions;
+  /**
+   * @default {}
+   */
   alias?: Record<string, string>;
 };
 export declare function createUserConfig({ basePath, port, define, build, alias }: Props): UserConfig;

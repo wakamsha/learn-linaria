@@ -7,10 +7,8 @@ import { StrictMode, useEffect, useState, type ChangeEvent, type FC } from 'reac
 import { createRoot } from 'react-dom/client';
 import { Basic } from './01-basic';
 import { NestRoutesDeep } from './02-nest-routes-deep';
-import { RouteObjects } from './03-route-objects';
-import { WithPageTransition } from './04-with-page-transition';
 
-type Type = 'basic' | 'nest-routes-deep' | 'route-objects' | 'with-page-transition';
+type Type = 'basic' | 'nest-routes-deep';
 
 const storageKey = 'ROUTING_TYPE';
 
@@ -33,8 +31,6 @@ const TypeContainer = createContainer(useTypeConfig);
 const Components: Record<Type, FC> = {
   basic: Basic,
   'nest-routes-deep': NestRoutesDeep,
-  'route-objects': RouteObjects,
-  'with-page-transition': WithPageTransition,
 };
 
 const BootLoader = () => {

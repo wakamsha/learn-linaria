@@ -1,11 +1,10 @@
-import linaria from '@linaria/vite';
 import react from '@vitejs/plugin-react';
-import { resolve } from 'path';
-import { splitVendorChunkPlugin } from 'vite';
+import wyw from '@wyw-in-js/vite';
+import path from 'node:path';
 export function createUserConfig({ basePath, port = 3000, define = {}, build = {}, alias = {} }) {
     return {
         define,
-        root: resolve(basePath, './'),
+        root: path.resolve(basePath, './'),
         build: {
             sourcemap: true,
             ...build,
@@ -19,27 +18,9 @@ export function createUserConfig({ basePath, port = 3000, define = {}, build = {
             alias,
         },
         plugins: [
-            splitVendorChunkPlugin(),
-            react({
-                babel: {
-                    parserOpts: {
-                        plugins: ['decorators-legacy', 'classProperties'],
-                    },
-                },
-            }),
-            linaria({
-                sourceMap: true,
+            react(),
+            wyw({
                 babelOptions: {
-                    plugins: [
-                        // linaria にエイリアスパスを認識させるための措置。
-                        [
-                            'module-resolver',
-                            {
-                                alias,
-                            },
-                        ],
-                    ],
-                    // linaria のスタイル定義内で外部ファイルから import した値が型情報ついてるとパースエラーになるので追加
                     presets: ['@babel/preset-typescript'],
                 },
             }),

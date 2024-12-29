@@ -20,9 +20,9 @@
     "react-router-dom": "6.8.2"
   },
   "devDependencies": {
-    "@learn-linaria/builder": "workspace:1.0.0",
+    "@learn-linaria/builder": "workspace:*",
     "@learn-linaria/tsconfig": "workspace:1.0.0",
-    "@linaria/core": "4.2.8",
+    "@linaria/core": "6.2.0",
     "@types/node": "22.10.2",
     "@types/react": "19.0.2",
     "@types/react-dom": "19.0.2",

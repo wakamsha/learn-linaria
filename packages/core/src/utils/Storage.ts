@@ -69,6 +69,7 @@ class CookieStorage implements Storage {
 
 class SessionStorage implements Storage {
   public getValue(key: string): string {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return sessionStorage[key] ?? '';
   }
 
@@ -83,6 +84,7 @@ class SessionStorage implements Storage {
 
 class LocalStorage implements Storage {
   public getValue(key: string): string {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return localStorage[key] ?? '';
   }
 

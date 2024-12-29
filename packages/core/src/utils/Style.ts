@@ -135,7 +135,9 @@ export function applyGlobalStyle() {
         font-family: 'Noto Sans Japanese';
         font-style: normal;
         font-weight: normal;
-        src: local('Noto Sans Japanese'), url(${NotoSansRegular}) format('woff');
+        src:
+          local('Noto Sans Japanese'),
+          url(${NotoSansRegular}) format('woff');
         font-display: swap;
       }
 
@@ -143,7 +145,9 @@ export function applyGlobalStyle() {
         font-family: 'Noto Sans Japanese';
         font-style: normal;
         font-weight: bold;
-        src: local('Noto Sans Japanese Bold'), url(${NotoSansMedium}) format('woff');
+        src:
+          local('Noto Sans Japanese Bold'),
+          url(${NotoSansMedium}) format('woff');
         font-display: swap;
       }
 
@@ -151,7 +155,9 @@ export function applyGlobalStyle() {
         font-family: 'Noto Serif Japanese';
         font-style: normal;
         font-weight: normal;
-        src: local('Noto Serif Japanese'), url(${NotoSerifRegular}) format('woff');
+        src:
+          local('Noto Serif Japanese'),
+          url(${NotoSerifRegular}) format('woff');
         font-display: swap;
       }
 
@@ -159,31 +165,21 @@ export function applyGlobalStyle() {
         font-family: 'Noto Serif Japanese';
         font-style: normal;
         font-weight: bold;
-        src: local('Noto Serif Japanese Bold'), url(${NotoSerifSemiBold}) format('woff');
+        src:
+          local('Noto Serif Japanese Bold'),
+          url(${NotoSerifSemiBold}) format('woff');
         font-display: swap;
       }
 
       :root {
-        ${Object.entries({ ...Color, ...Shadow }).reduce(
-          (acc, [key, value]) => ({
-            ...acc,
-            [`--${key}`]: value.light,
-          }),
-          {},
-        )}
+        ${Object.fromEntries(Object.entries({ ...Color, ...Shadow }).map(([key, value]) => [`--${key}`, value.light]))}
       }
 
       @media (prefers-color-scheme: dark) {
         :root {
           color-scheme: dark;
 
-          ${Object.entries({ ...Color, ...Shadow }).reduce(
-            (acc, [key, value]) => ({
-              ...acc,
-              [`--${key}`]: value.dark,
-            }),
-            {},
-          )}
+          ${Object.fromEntries(Object.entries({ ...Color, ...Shadow }).map(([key, value]) => [`--${key}`, value.dark]))}
         }
       }
 

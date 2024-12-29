@@ -15,9 +15,9 @@
   "scripts": {
     "prepare": "husky",
     "app": "     pnpm -F '@learn-linaria/app'",
+    "routing": " pnpm -F '@learn-linaria/routing'",
     "builder": " pnpm -F '@learn-linaria/builder'",
     "core": "    pnpm -F '@learn-linaria/core'",
-    "routing": " pnpm -F '@learn-linaria/routing'",
     "tsconfig": "pnpm -F '@learn-linaria/tsconfig'",
     "lint": "  prettier -c ./packages/**/*.ts{,x}; stylelint ./packages/**/*.ts{,x};       eslint ./packages/**/*.ts{,x}",
     "format": "prettier -w ./packages/**/*.ts{,x}; stylelint ./packages/**/*.ts{,x} --fix; eslint ./packages/**/*.ts{,x} --fix"

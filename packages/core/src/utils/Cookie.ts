@@ -6,13 +6,13 @@ type Cookie = {
 };
 
 export function setCookie({ cname, cvalue, expireAt, domain = '.wakamsha.net' }: Cookie) {
-  const segments: { [key: string]: string } = {};
+  const segments: Record<string, string> = {};
   segments[cname] = cvalue;
   segments.path = '/';
 
   if (domain) {
     segments.domain =
-      window.location.hostname === 'localhost' || /192\.168\./.test(window.location.hostname)
+      window.location.hostname === 'localhost' || window.location.hostname.includes('192.168.')
         ? window.location.hostname
         : domain;
   }
@@ -30,19 +30,20 @@ export function setCookie({ cname, cvalue, expireAt, domain = '.wakamsha.net' }:
     .join('; ');
 }
 
-export function getCookie(cname: string): string | void {
+export function getCookie(cname: string) {
   const sensor = `${cname}=`;
   const segments = document.cookie.split(';');
 
-  for (let i = 0; i < segments.length; i++) {
-    let pair = segments[i];
-    while (pair[0] === ' ') {
-      pair = pair.substring(1);
+  for (let pair of segments) {
+    while (pair.startsWith(' ')) {
+      pair = pair.slice(1);
     }
-    if (pair.indexOf(sensor) === 0) {
-      return pair.substring(sensor.length, pair.length);
+    if (pair.startsWith(sensor)) {
+      return pair.slice(sensor.length);
     }
   }
+
+  return '';
 }
 
 export function destroyCookie(cname: string) {

@@ -9,7 +9,7 @@ importers:
   .:
     devDependencies:
       '@linaria/stylelint':
-        specifier: 4.1.15
+        specifier: 6.2.0
         version: 6.2.0(typescript@5.7.2)
       '@wakamsha/eslint-config':
         specifier: 6.0.2

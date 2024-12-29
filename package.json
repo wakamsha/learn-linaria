@@ -23,7 +23,7 @@
     "format": "prettier -w ./packages/**/*.ts{,x}; stylelint ./packages/**/*.ts{,x} --fix; eslint ./packages/**/*.ts{,x} --fix"
   },
   "devDependencies": {
-    "@linaria/stylelint": "4.1.15",
+    "@linaria/stylelint": "6.2.0",
     "@wakamsha/eslint-config": "6.0.2",
     "@wakamsha/stylelint-config": "2.0.2",
     "cspell": "8.17.1",

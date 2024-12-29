@@ -45,11 +45,11 @@ importers:
         specifier: 5.7.2
         version: 5.7.2
 
-  packages/app:
+  apps/app:
     dependencies:
       '@learn-linaria/core':
         specifier: workspace:1.0.0
-        version: link:../core
+        version: link:../../packages/core
       react:
         specifier: 19.0.0
         version: 19.0.0
@@ -59,10 +59,10 @@ importers:
     devDependencies:
       '@learn-linaria/builder':
         specifier: workspace:1.0.0
-        version: link:../builder
+        version: link:../../packages/builder
       '@learn-linaria/tsconfig':
         specifier: workspace:*
-        version: link:../tsconfig
+        version: link:../../packages/tsconfig
       '@linaria/core':
         specifier: 4.2.8
         version: 4.2.8
@@ -84,6 +84,49 @@ importers:
       vite:
         specifier: 4.1.4
         version: 4.1.4(@types/node@22.10.2)
+
+  apps/routing:
+    dependencies:
+      '@learn-linaria/core':
+        specifier: workspace:1.0.0
+        version: link:../../packages/core
+      react:
+        specifier: 19.0.0
+        version: 19.0.0
+      react-dom:
+        specifier: 19.0.0
+        version: 19.0.0(react@19.0.0)
+      react-router-dom:
+        specifier: 6.8.2
+        version: 6.8.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+    devDependencies:
+      '@learn-linaria/builder':
+        specifier: workspace:1.0.0
+        version: link:../../packages/builder
+      '@learn-linaria/tsconfig':
+        specifier: workspace:1.0.0
+        version: link:../../packages/tsconfig
+      '@linaria/core':
+        specifier: 4.2.8
+        version: 4.2.8
+      '@types/node':
+        specifier: 22.10.2
+        version: 22.10.2
+      '@types/react':
+        specifier: 19.0.2
+        version: 19.0.2
+      '@types/react-dom':
+        specifier: 19.0.2
+        version: 19.0.2(@types/react@19.0.2)
+      npm-run-all2:
+        specifier: 7.0.2
+        version: 7.0.2
+      typescript:
+        specifier: 5.7.2
+        version: 5.7.2
+      vite:
+        specifier: 6.0.6
+        version: 6.0.6(@types/node@22.10.2)(yaml@2.6.1)
 
   packages/builder:
     dependencies:
@@ -139,49 +182,6 @@ importers:
       typescript:
         specifier: 5.7.2
         version: 5.7.2
-
-  packages/routing:
-    dependencies:
-      '@learn-linaria/core':
-        specifier: workspace:1.0.0
-        version: link:../core
-      react:
-        specifier: 19.0.0
-        version: 19.0.0
-      react-dom:
-        specifier: 19.0.0
-        version: 19.0.0(react@19.0.0)
-      react-router-dom:
-        specifier: 6.8.2
-        version: 6.8.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-    devDependencies:
-      '@learn-linaria/builder':
-        specifier: workspace:1.0.0
-        version: link:../builder
-      '@learn-linaria/tsconfig':
-        specifier: workspace:1.0.0
-        version: link:../tsconfig
-      '@linaria/core':
-        specifier: 4.2.8
-        version: 4.2.8
-      '@types/node':
-        specifier: 22.10.2
-        version: 22.10.2
-      '@types/react':
-        specifier: 19.0.2
-        version: 19.0.2
-      '@types/react-dom':
-        specifier: 19.0.2
-        version: 19.0.2(@types/react@19.0.2)
-      npm-run-all2:
-        specifier: 7.0.2
-        version: 7.0.2
-      typescript:
-        specifier: 5.7.2
-        version: 5.7.2
-      vite:
-        specifier: 6.0.6
-        version: 6.0.6(@types/node@22.10.2)(yaml@2.6.1)
 
   packages/tsconfig: {}
 

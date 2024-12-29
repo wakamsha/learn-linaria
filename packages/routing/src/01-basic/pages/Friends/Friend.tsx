@@ -1,7 +1,7 @@
-import { gutter } from '@learn-linaria/core/utils/Style';
+import { gutter } from '@learn-linaria/core/src/utils/Style';
 import { css } from '@linaria/core';
 import { useParams } from 'react-router-dom';
-import { getFriendById } from '../Friends';
+import { getFriendById } from '.';
 
 export const Friend = () => {
   const { id = '' } = useParams();

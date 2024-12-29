@@ -4,52 +4,36 @@
   "repository": "git@github.com:wakamsha/learn-linaria.git",
   "author": "wakamsha <wakamsha@gmail.com>",
   "license": "UNLICENSED",
+  "type": "module",
+  "private": true,
   "engines": {
-    "node": "20.12.2",
-    "pnpm": "7.29.0",
+    "node": "22.12.0",
+    "pnpm": "9.15.1",
     "npm": "please use pnpm instead"
   },
-  "packageManager": "pnpm@7.29.0",
+  "packageManager": "pnpm@9.15.1",
   "scripts": {
-    "app": "     pnpm -F \"@learn-linaria/app\"",
-    "builder": " pnpm -F \"@learn-linaria/builder\"",
-    "core": "    pnpm -F \"@learn-linaria/core\"",
-    "routing": " pnpm -F \"@learn-linaria/routing\"",
-    "tsconfig": "pnpm -F \"@learn-linaria/tsconfig\"",
+    "prepare": "husky",
+    "app": "     pnpm -F '@learn-linaria/app'",
+    "builder": " pnpm -F '@learn-linaria/builder'",
+    "core": "    pnpm -F '@learn-linaria/core'",
+    "routing": " pnpm -F '@learn-linaria/routing'",
+    "tsconfig": "pnpm -F '@learn-linaria/tsconfig'",
     "lint": "  prettier -c ./packages/**/*.ts{,x}; stylelint ./packages/**/*.ts{,x};       eslint ./packages/**/*.ts{,x}",
-    "format": "prettier -w ./packages/**/*.ts{,x}; stylelint ./packages/**/*.ts{,x} --fix; eslint ./packages/**/*.ts{,x} --fix",
-    "prepare": "husky install"
+    "format": "prettier -w ./packages/**/*.ts{,x}; stylelint ./packages/**/*.ts{,x} --fix; eslint ./packages/**/*.ts{,x} --fix"
   },
   "devDependencies": {
     "@linaria/stylelint": "4.1.15",
-    "@stylelint/postcss-css-in-js": "0.38.0",
-    "@typescript-eslint/eslint-plugin": "5.54.1",
-    "@typescript-eslint/parser": "5.54.1",
-    "cspell": "6.28.0",
-    "eslint": "8.35.0",
-    "eslint-config-airbnb": "19.0.4",
-    "eslint-config-prettier": "8.7.0",
-    "eslint-plugin-import": "2.27.5",
-    "eslint-plugin-jsx-a11y": "6.7.1",
-    "eslint-plugin-react": "7.32.2",
-    "eslint-plugin-react-hooks": "4.6.0",
-    "husky": "8.0.3",
-    "lint-staged": "13.1.2",
-    "postcss": "8.4.21",
-    "postcss-syntax": "0.36.2",
-    "prettier": "2.8.4",
-    "prettier-plugin-organize-imports": "3.2.2",
-    "stylelint": "15.2.0",
-    "stylelint-config-recess-order": "4.0.0",
-    "stylelint-config-recommended": "10.0.1",
-    "stylelint-config-standard": "30.0.1",
-    "typescript": "4.9.5"
-  },
-  "lint-staged": {
-    "packages/**/*.ts{,x}": [
-      "cspell",
-      "prettier -c",
-      "eslint -c .eslintrc.js"
-    ]
+    "@wakamsha/eslint-config": "6.0.2",
+    "@wakamsha/stylelint-config": "2.0.2",
+    "cspell": "8.17.1",
+    "eslint": "9.17.0",
+    "eslint-config-prettier": "9.1.0",
+    "husky": "9.1.7",
+    "lint-staged": "15.3.0",
+    "prettier": "3.4.2",
+    "prettier-plugin-organize-imports": "4.1.0",
+    "stylelint": "16.12.0",
+    "typescript": "5.7.2"
   }
 }

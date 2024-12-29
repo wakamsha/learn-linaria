@@ -1,4 +1,4 @@
-import { gutter } from '@learn-linaria/core/utils/Style';
+import { gutter } from '@learn-linaria/core/src/utils/Style';
 import { css } from '@linaria/core';
 import { BrowserRouter, generatePath, Navigate, Outlet, Route, Routes } from 'react-router-dom';
 import { Navigation } from './components/Navigation';

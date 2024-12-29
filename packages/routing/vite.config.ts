@@ -1,17 +1,10 @@
 import { createUserConfig } from '@learn-linaria/builder';
-import { resolve } from 'path';
-import { defineConfig, UserConfig } from 'vite';
+import { defineConfig, type UserConfig } from 'vite';
 
-const alias = {
-  '@learn-linaria/core': resolve(__dirname, '../core/src'),
-};
-
-// eslint-disable-next-line import/no-default-export
 export default defineConfig(
   (): UserConfig =>
     createUserConfig({
-      basePath: __dirname,
-      alias,
+      basePath: import.meta.dirname,
       port: 3001,
     }),
 );

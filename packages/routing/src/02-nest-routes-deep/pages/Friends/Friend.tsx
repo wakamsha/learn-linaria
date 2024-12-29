@@ -1,6 +1,7 @@
-import { gutter } from '@learn-linaria/core/utils/Style';
+import { gutter } from '@learn-linaria/core/src/utils/Style';
 import { css } from '@linaria/core';
 import { useParams } from 'react-router-dom';
+// eslint-disable-next-line import/no-cycle
 import { getFriendById } from '.';
 
 export const Friend = () => {

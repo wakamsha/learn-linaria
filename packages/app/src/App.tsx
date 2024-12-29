@@ -1,4 +1,4 @@
-import { LabeledSlider } from '@learn-linaria/core/components/inputs/LabeledSlider';
+import { LabeledSlider } from '@learn-linaria/core/src/components/inputs/LabeledSlider';
 import { css } from '@linaria/core';
 import { useMemo, useState } from 'react';
 
@@ -24,7 +24,13 @@ export const App = () => {
       <h1>Vite + React</h1>
 
       <div className={styleCard}>
-        <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
+        <button
+          onClick={() => {
+            setCount((count) => count + 1);
+          }}
+        >
+          count is {count}
+        </button>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
@@ -36,7 +42,7 @@ export const App = () => {
         <p>BMI: {calcBMI}</p>
       </div>
 
-      <p className={styleDocs}>Click on the Vite and React logos to learn more</p>
+      <p className={styleDocuments}>Click on the Vite and React logos to learn more</p>
     </div>
   );
 };
@@ -51,8 +57,8 @@ const styleBase = css`
 const styleLogo = css`
   height: 6em;
   padding: 1.5em;
-  will-change: filter;
   transition: filter 300ms;
+  will-change: filter;
 
   &:hover {
     filter: drop-shadow(0 0 2em #646cffaa);
@@ -63,7 +69,7 @@ const styleCard = css`
   padding: 2em;
 `;
 
-const styleDocs = css`
+const styleDocuments = css`
   color: #888;
 `;
 

@@ -1,7 +1,7 @@
-import { LineHeight } from '@learn-linaria/core/constants/Style';
-import { createContainer } from '@learn-linaria/core/utils/Container';
-import { StorageProxy } from '@learn-linaria/core/utils/Storage';
-import { applyGlobalStyle, applyResetStyle, gutter } from '@learn-linaria/core/utils/Style';
+import { LineHeight } from '@learn-linaria/core/src/constants/Style';
+import { createContainer } from '@learn-linaria/core/src/utils/Container';
+import { StorageProxy } from '@learn-linaria/core/src/utils/Storage';
+import { applyGlobalStyle, applyResetStyle, gutter } from '@learn-linaria/core/src/utils/Style';
 import { css } from '@linaria/core';
 import { StrictMode, useEffect, useState, type ChangeEvent, type FC } from 'react';
 import { createRoot } from 'react-dom/client';
@@ -13,6 +13,7 @@ type Type = 'basic' | 'nest-routes-deep';
 const storageKey = 'ROUTING_TYPE';
 
 function useTypeConfig() {
+  // eslint-disable-next-line react/hook-use-state
   const [storage] = useState(() => new StorageProxy('localStorage'));
 
   const [type, setType] = useState<Type>(
@@ -36,9 +37,9 @@ const Components: Record<Type, FC> = {
 const BootLoader = () => {
   const { type, updateType } = TypeContainer.useContainer();
 
-  const handleSwitch = (e: ChangeEvent<HTMLSelectElement>) => {
+  const handleSwitch = ({ target: { value } }: ChangeEvent<HTMLSelectElement>) => {
     window.location.replace('/');
-    updateType(e.target.value as Type);
+    updateType(value as Type);
   };
 
   const Component = Components[type];
@@ -46,7 +47,7 @@ const BootLoader = () => {
   return (
     <div className={styleBase}>
       <Component />
-      <select className={styleSwitch} onChange={handleSwitch} value={type}>
+      <select className={styleSwitch} value={type} onChange={handleSwitch}>
         {Object.keys(Components).map((key) => (
           <option key={key} value={key}>
             {key}
@@ -73,7 +74,7 @@ applyResetStyle();
 
 applyGlobalStyle();
 
-const root = createRoot(document.getElementById('app') as HTMLElement);
+const root = createRoot(document.querySelector('#app') as HTMLElement);
 
 root.render(
   <StrictMode>

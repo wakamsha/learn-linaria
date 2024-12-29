@@ -5,24 +5,25 @@
   "type": "module",
   "scripts": {
     "type-check": "tsc",
-    "dev": "vite serve",
-    "start": "run-p \"type-check --watch\" \"dev\"",
+    "dev": "vite",
+    "start": "run-p 'type-check --watch' 'dev'",
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
     "@learn-linaria/core": "workspace:1.0.0",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react": "19.0.0",
+    "react-dom": "19.0.0"
   },
   "devDependencies": {
     "@learn-linaria/builder": "workspace:1.0.0",
+    "@learn-linaria/tsconfig": "workspace:*",
     "@linaria/core": "4.2.8",
-    "@types/node": "18.14.6",
-    "@types/react": "18.0.28",
-    "@types/react-dom": "18.0.11",
-    "npm-run-all": "4.1.5",
-    "typescript": "4.9.5",
+    "@types/node": "22.10.2",
+    "@types/react": "19.0.2",
+    "@types/react-dom": "19.0.2",
+    "npm-run-all2": "7.0.2",
+    "typescript": "5.7.2",
     "vite": "4.1.4"
   }
 }

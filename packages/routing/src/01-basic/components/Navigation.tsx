@@ -1,4 +1,4 @@
-import { cssVar, gutter } from '@learn-linaria/core/utils/Style';
+import { cssVar, gutter } from '@learn-linaria/core/src/utils/Style';
 import { css } from '@linaria/core';
 import { Link } from 'react-router-dom';
 import { Router } from '../constants/Router';

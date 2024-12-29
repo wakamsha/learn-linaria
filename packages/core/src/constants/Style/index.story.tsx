@@ -1,6 +1,6 @@
 import { css } from '@linaria/core';
 import { Color, FontSize, LineHeight } from '.';
-import { cssVar, gutter, textEllipsis } from '../../helpers/Style';
+import { cssVar, gutter, textEllipsis } from '../../utils/Style';
 
 export const Story = () => {
   const colors = Object.entries(Color).map(([name, color]) => ({ name, color }));
@@ -98,12 +98,12 @@ function getRelativeLuminance(hexColor: string) {
  * @param value #FFCC00 のような値
  */
 function parseHexColor(value: string) {
-  const [, red, green, blue] = value.match(/#(..)(..)(..)/) ?? [];
+  const [, red, green, blue] = /#(..)(..)(..)/.exec(value) ?? [];
 
   return {
-    red: parseInt(`0x${red}`, 16),
-    green: parseInt(`0x${green}`, 16),
-    blue: parseInt(`0x${blue}`, 16),
+    red: Number.parseInt(`0x${red}`, 16),
+    green: Number.parseInt(`0x${green}`, 16),
+    blue: Number.parseInt(`0x${blue}`, 16),
   };
 }
 
@@ -114,7 +114,7 @@ function parseHexColor(value: string) {
  */
 function getRGBForCalculateLuminance(color: number) {
   const ratio = color / 255;
-  if (ratio <= 0.03928) {
+  if (ratio <= 0.039_28) {
     return ratio / 12.92;
   }
 

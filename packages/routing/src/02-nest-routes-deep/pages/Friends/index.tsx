@@ -1,7 +1,8 @@
-import { gutter } from '@learn-linaria/core/utils/Style';
+import { gutter } from '@learn-linaria/core/src/utils/Style';
 import { css } from '@linaria/core';
 import { generatePath, Navigate, NavLink, Route, Routes } from 'react-router-dom';
 import { Router } from '../../constants/Router';
+// eslint-disable-next-line import/no-cycle
 import { Friend } from './Friend';
 
 export const Friends = () => (
@@ -79,6 +80,6 @@ const FriendData: FriendType[] = [
   },
 ];
 
-export function getFriendById(id: string): FriendType | void {
+export function getFriendById(id: string): FriendType | undefined {
   return FriendData.find((f) => f.id === id);
 }

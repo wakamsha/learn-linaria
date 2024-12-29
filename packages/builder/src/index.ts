@@ -61,6 +61,7 @@ export function createUserConfig({ basePath, port = 3000, define = {}, build = {
       react(),
       wyw({
         babelOptions: {
+          // TypeScript をトランスパイルするためのプリセットを追加
           presets: ['@babel/preset-typescript'],
         },
       }),
